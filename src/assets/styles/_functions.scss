@@ -1,0 +1,38 @@
+@import "variables";
+
+@function get-in-map($field, $map) {
+  @if map-has-key($map, $field) {
+    @return map-get($map, $field);
+  } @else {
+    @warn 'Unknown `#{$field}` in #{$map}!';
+    @return null;
+  }
+}
+
+@function theme-color($color) {
+  @return get-in-map($color, $theme-colors);
+}
+
+@function breakpoint($type) {
+  @return get-in-map($type, $breakpoints);
+}
+
+@function container($size) {
+  @return get-in-map($size, $containers);
+}
+
+@function gutter($type) {
+  @return get-in-map($type, $gutters);
+}
+
+@function text-color($color) {
+  @return get-in-map($color, $text-colors);
+}
+
+@function font($name) {
+  @return get-in-map($name, $fonts);
+}
+
+@function em($value) {
+  @return ($value / 16) * 1em;
+}
