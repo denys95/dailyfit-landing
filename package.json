@@ -6,7 +6,8 @@
   "author": "DailyFit",
   "dependencies": {
     "classnames": "^2.2.6",
-    "gatsby": "^2.13.31",
+    "eslint-plugin-import": "^2.18.2",
+    "gatsby": "~2.13.31",
     "gatsby-image": "^2.2.6",
     "gatsby-plugin-manifest": "^2.2.3",
     "gatsby-plugin-offline": "^2.2.4",
@@ -15,13 +16,18 @@
     "gatsby-source-filesystem": "^2.1.5",
     "gatsby-transformer-sharp": "^2.2.4",
     "material-icons": "^0.3.1",
-    "prop-types": "^15.7.2",
+    "prop-types": "~15.7.2",
     "ramda": "^0.26.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-helmet": "~5.2.1"
   },
   "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "husky": "^3.0.2",
     "prettier": "^1.18.2"
   },
   "keywords": [
@@ -34,13 +40,15 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "lint": "./node_modules/.bin/eslint src/**/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/denys95/dailyfit-landing"
   },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   }
 }
